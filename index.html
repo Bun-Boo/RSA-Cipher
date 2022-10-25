@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mã hóa RSA</title>
+    <script src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,18 +16,18 @@
           <div class="input-RSA">
             <div class="input">
               <span>P</span>
-              <input type="number" name="" id="" />
+              <input type="number" name="" id="input_p" />
             </div>
             <div class="input">
               <span>Q</span>
-              <input type="number" name="" id="" />
+              <input type="number" name="" id="input_q" />
             </div>
             <div class="input">
               <span>E</span>
-              <input type="number" name="" id="" />
+              <input type="number" name="" id="input_e" />
             </div>
             <div class="input">
-              <button class="gene">Generate</button>
+              <button class="gene" onclick="generate()">Generate</button>
             </div>
           </div>
           <div class="arrow">
@@ -35,32 +36,32 @@
           <div class="key-RSA">
             <div class="key">
               <span>KUA</span>
-              <input type="text" />
+              <input type="text" id="input_kua" />
             </div>
             <div class="key">
               <span>KRA</span>
-              <input type="text" />
+              <input type="text" id="input_kra" />
             </div>
           </div>
         </div>
         <div class="text-RSA">
           <div class="text">
             <span>M</span>
-            <input type="text" />
+            <input type="number" id="input_m" />
           </div>
           <div class="text">
             <span>C</span>
-            <input type="text" />
+            <input type="number" id="input_c" />
           </div>
         </div>
         <div class="output-RSA">
           <div class="encrypt-RSA">
-            <button>Encrypt</button>
-            <span>Output ma hoa</span>
+            <button onclick="encrypt()">Encrypt</button>
+            <span id="output-encrypt">Output ma hoa</span>
           </div>
           <div class="encrypt-RSA">
-            <button>Encrypt</button>
-            <span>Output ma hoa</span>
+            <button onclick="decrypt()">Decrypt</button>
+            <span id="output-decrypt">Output ma hoa</span>
           </div>
         </div>
       </div>
