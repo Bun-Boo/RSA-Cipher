@@ -53,10 +53,32 @@ function encrypt() {
 }
 
 function decrypt() {
-  c = document.getElementById("input_c").valueAsNumber;
-  console.log(c, d, n, BigInt(74).modPow(51, 123));
-  if (c) {
-    document.getElementById("output-decrypt").innerHTML =
-      BigInt(c ** d) % BigInt(n);
+  // c = document.getElementById("input_c").valueAsNumber;
+  // console.log(c, d, n, BigInt(74).modPow(51, 123));
+  // if (c) {
+  //   document.getElementById("output-decrypt").innerHTML =
+  //     BigInt(c ** d) % BigInt(n);
+  // }
+  phantich(2, 173, 323);
+}
+
+function phantich(x, e, n) {
+  let i = Math.floor(Math.log2(e));
+  let arr = [];
+  while (e > 0) {
+    arr.push(2 ** i);
+    e -= 2 ** i;
+    while (e - 2 ** i < 0) i--;
   }
+  arr = arr.reverse();
+  console.log(arr);
+  let arrMod = [];
+  for (let i = 0; i <= Math.log2(arr[arr.length - 1]); i++) {
+    // if (x ** arr[i] % n === x ** arr[i]) arrMod.push(x ** arr[i] % n);
+    if (i === 0) arrMod.push(x ** arr[i] % n);
+    else {
+      arrMod.push(arrMod[i - 1] ** 2 % n);
+    }
+  }
+  console.log(arrMod);
 }
